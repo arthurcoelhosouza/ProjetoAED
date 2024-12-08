@@ -31,9 +31,7 @@ namespace ProjetoAED{
 
                     arqEntrada.Close();
                     StreamWriter arqSaida = new StreamWriter("saida.txt", false, Encoding.UTF8);
-                    for(int i = 0;i < qtdCandidatos;i++){
-                        arqSaida.WriteLine("Nome: " + candidatos[i].Nome + " // Nota Média: " + candidatos[i].NotaMedia);
-                    }
+                    
                     arqSaida.Close();
                 }
             }
