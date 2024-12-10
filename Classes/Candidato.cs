@@ -66,8 +66,8 @@ namespace ProjetoAED.Classes
         }
         public bool Aprovado2
         {
-            get { return aprovado2; };
-            set { aprovado2 = value; };
+            get { return aprovado2; }
+            set { aprovado2 = value; }
         }
     }
 }
