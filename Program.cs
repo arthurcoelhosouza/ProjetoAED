@@ -19,14 +19,15 @@ namespace ProjetoAED{
 
                     linha = arqEntrada.ReadLine();
                     int qtdCursos = int.Parse(linha.Split(';')[0]), qtdCandidatos = int.Parse(linha.Split(';')[1]);
-                    Dictionary<string, double> notasDeCorte = new Dictionary<string, double>();
-                    Curso[] cursos = new Curso[qtdCursos];
+                    Dictionary<int,Curso> dicionario_curso = new Dictionary<int,Curso>();
+                    Curso cursos;
                     Candidato[] candidatos = new Candidato[qtdCandidatos];
 
                     for (int i = 0; i < qtdCursos; i++)
                     {
                         linha = arqEntrada.ReadLine();
-                        cursos[i] = new Curso(int.Parse(linha.Split(';')[0]), linha.Split(';')[1], int.Parse(linha.Split(';')[2]));
+                        cursos = new Curso(int.Parse(linha.Split(';')[0]), linha.Split(';')[1], int.Parse(linha.Split(';')[2]));
+                        dicionario_curso.Add(int.Parse(linha.Split(';')[0]), cursos);
                     }
 
                     for (int i = 0; i < qtdCandidatos; i++)
@@ -36,6 +37,30 @@ namespace ProjetoAED{
                     }
 
                     Mergesort(candidatos, 0, candidatos.Length - 1);
+
+                    for(int i = 0; i < candidatos.Length; i++)
+                    {
+                        foreach(int j in dicionario_curso.Keys)
+                        {
+                            Curso c1 = dicionario_curso[j];
+                            if (j == candidatos[i].CodCurso1)
+                            {
+                                c1.InserirCandidato(1, candidatos[i]);
+                            }
+                            else
+                            {
+                                
+                            }
+                            /*if (cursos[j].CodCurso == candidatos[i].CodCurso1)
+                            {
+                                cursos[j].InserirCandidato(1, candidatos[i]);
+                            }
+                            else if(cursos[j].CodCurso == candidatos[i].CodCurso2)
+                            {
+                                cursos[j].InserirCandidato(2, candidatos[i]);  
+                            }*/
+                        }
+                    }
 
                     arqEntrada.Close();
 

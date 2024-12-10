@@ -1,0 +1,20 @@
+﻿Nome: Rafaela Coutinho - Nota Média: 566,666666666667 - Redação: 1700 - Matemática: 0
+Nome: Izabela Soares Silva - Nota Média: 533,333333333333 - Redação: 1600 - Matemática: 0
+Nome: Gustavo Couto Ribeiro - Nota Média: 500 - Redação: 1500 - Matemática: 0
+Nome: Patrícia Pereira - Nota Média: 466,666666666667 - Redação: 1400 - Matemática: 0
+Nome: Rogério Azevedo Costa - Nota Média: 433,333333333333 - Redação: 1300 - Matemática: 0
+Nome: Antônio Roberto da Silva - Nota Média: 400 - Redação: 1200 - Matemática: 0
+Nome: Beatriz Silveira - Nota Média: 366,666666666667 - Redação: 1100 - Matemática: 0
+Nome: Carlos Costa - Nota Média: 333,333333333333 - Redação: 1000 - Matemática: 0
+Nome: Francisco Almeida Alves - Nota Média: 300 - Redação: 900 - Matemática: 0
+Nome: José Roberto Silveira - Nota Média: 266,666666666667 - Redação: 800 - Matemática: 0
+Nome: Marcelo Rodrigues Leal - Nota Média: 233,333333333333 - Redação: 700 - Matemática: 0
+Nome: José Ribeiro Nunes da Silva - Nota Média: 200 - Redação: 600 - Matemática: 0
+Nome: João Pereira Lemes - Nota Média: 166,666666666667 - Redação: 500 - Matemática: 0
+Nome: Maria Silva - Nota Média: 133,333333333333 - Redação: 400 - Matemática: 0
+Nome: Ana da Silva - Nota Média: 100 - Redação: 300 - Matemática: 0
+Nome: Carmen Lúcia - Nota Média: 66,6666666666667 - Redação: 100 - Matemática: 100
+Nome: Joana Souza - Nota Média: 66,6666666666667 - Redação: 100 - Matemática: 75
+Nome: Maria João - Nota Média: 66,6666666666667 - Redação: 100 - Matemática: 50
+Nome: Ana Clara - Nota Média: 33,3333333333333 - Redação: 100 - Matemática: 0
+Nome: Amanda Silva - Nota Média: 33,3333333333333 - Redação: 0 - Matemática: 100

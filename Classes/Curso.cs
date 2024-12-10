@@ -56,10 +56,18 @@ namespace ProjetoAED.Classes{
             return listaSelecionados.Count >= qtdVagas;
         }
 
-        public void InserirCandidato(Candidato candidato)
+        public void InserirCandidato(int opcao,Candidato candidato)
         {
             if (!EstaCheio())
             {
+                if(opcao == 1)
+                {
+                    candidato.Aprovado1 = true;
+                }
+                else
+                {
+                    candidato.Aprovado2 = true;
+                }
                 listaSelecionados.Add(candidato);
                 AtualizarNotaDeCorte();
             }

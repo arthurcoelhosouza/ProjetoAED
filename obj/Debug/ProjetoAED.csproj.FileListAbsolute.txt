@@ -5,3 +5,10 @@ C:\Users\Usuario\Desktop\AED 2º Semestre\ProjetoAED\ProjetoAED\obj\Debug\Projet
 C:\Users\Usuario\Desktop\AED 2º Semestre\ProjetoAED\ProjetoAED\obj\Debug\ProjetoAED.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Desktop\AED 2º Semestre\ProjetoAED\ProjetoAED\obj\Debug\ProjetoAED.exe
 C:\Users\Usuario\Desktop\AED 2º Semestre\ProjetoAED\ProjetoAED\obj\Debug\ProjetoAED.pdb
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\bin\Debug\ProjetoAED.exe.config
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\bin\Debug\ProjetoAED.exe
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\bin\Debug\ProjetoAED.pdb
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\obj\Debug\ProjetoAED.csproj.AssemblyReference.cache
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\obj\Debug\ProjetoAED.csproj.CoreCompileInputs.cache
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\obj\Debug\ProjetoAED.exe
+C:\Users\cliente\OneDrive\Documentos\GitHub\ProjetoAED\obj\Debug\ProjetoAED.pdb

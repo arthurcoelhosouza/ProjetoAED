@@ -26,21 +26,5 @@ namespace ProjetoAED.Classes
             fila[fim] = candidato;
             fim = (fim + 1) % fila.Length;
         }
-        /*public Candidato Remover()
-        {
-            if (inicio == fim)
-            {
-                return null;
-            }
-            inicio = (inicio + 1) % fila.Length;
-        }*/
-        public bool EstaVazia()
-        {
-            if (inicio == fim)
-            {
-                return true;
-            }
-            return false;
-        }
     }
 }
