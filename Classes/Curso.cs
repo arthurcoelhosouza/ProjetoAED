@@ -5,8 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoAED.Classes{
-    internal class Curso{
+namespace ProjetoAED.Classes
+{
+    internal class Curso
+    {
         private int codCurso, qtdVagas;
         private string nome;
         private double notaDeCorte;
@@ -14,7 +16,8 @@ namespace ProjetoAED.Classes{
         private Fila filadeEspera;
         private int tamanhoEspera = 10;
 
-        public Curso(int codCurso, string nome, int qtdVagas){
+        public Curso(int codCurso, string nome, int qtdVagas)
+        {
             this.codCurso = codCurso;
             this.qtdVagas = qtdVagas;
             this.nome = nome;
@@ -23,15 +26,18 @@ namespace ProjetoAED.Classes{
             this.notaDeCorte = 0.0;
         }
 
-        public int CodCurso{ 
+        public int CodCurso
+        {
             get { return codCurso; }
             set { codCurso = value; }
         }
-        public int QtdVagas{
+        public int QtdVagas
+        {
             get { return qtdVagas; }
             set { qtdVagas = value; }
         }
-        public string Nome{
+        public string Nome
+        {
             get { return nome; }
             set { nome = value; }
         }
@@ -56,11 +62,11 @@ namespace ProjetoAED.Classes{
             return listaSelecionados.Count >= qtdVagas;
         }
 
-        public void InserirCandidato(int opcao,Candidato candidato)
+        public void InserirCandidato(int opcao, Candidato candidato)
         {
             if (!EstaCheio())
             {
-                if(opcao == 1)
+                if (opcao == 1)
                 {
                     candidato.Aprovado1 = true;
                     listaSelecionados.Add(candidato);
@@ -72,10 +78,6 @@ namespace ProjetoAED.Classes{
                     listaSelecionados.Add(candidato);
                     AtualizarNotaDeCorte();
                 }
-            }
-            else
-            {
-                filadeEspera.Inserir(candidato);
             }
         }
 

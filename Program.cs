@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoAED{
+namespace ProjetoAED
+{
     internal class Program
     {
         static void Main(string[] args)
@@ -19,7 +20,7 @@ namespace ProjetoAED{
 
                     linha = arqEntrada.ReadLine();
                     int qtdCursos = int.Parse(linha.Split(';')[0]), qtdCandidatos = int.Parse(linha.Split(';')[1]);
-                    Dictionary<int,Curso> dicionario_curso = new Dictionary<int,Curso>();
+                    Dictionary<int, Curso> dicionario_curso = new Dictionary<int, Curso>();
                     Curso cursos;
                     Candidato[] candidatos = new Candidato[qtdCandidatos];
 
@@ -37,7 +38,7 @@ namespace ProjetoAED{
                     }
 
                     Mergesort(candidatos, 0, candidatos.Length - 1);
-                    for (int i = 0; i < candidatos.Length; i++)
+                    for (int i = candidatos.Length - 1; i >= 0; i--)
                     {
                         if (dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso c1))
                         {
@@ -47,34 +48,37 @@ namespace ProjetoAED{
                         {
                             c2.InserirCandidato(2, candidatos[i]);
                         }
+
+                        if (!candidatos[i].Aprovado1 && !candidatos[i].Aprovado2)
+                        {
+                            dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f1);
+                            dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f2);
+                            f1.FilaDeEspera.Inserir(candidatos[i]);
+                            f2.FilaDeEspera.Inserir(candidatos[i]);
+                        }
+                        else if (!candidatos[i].Aprovado1 && candidatos[i].Aprovado2)
+                        {
+                            dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f1);
+                            f1.FilaDeEspera.Inserir(candidatos[i]);
+                        }
                     }
 
                     arqEntrada.Close();
 
-                    // ORDENAR CANDIDATOS AQUI
-
-                    /*foreach (Candidato candidato in candidatos)
-                    {
-                        Curso primeiraOpcao = null;
-                        Curso segundaOpcao = null;
-
-                        foreach (Curso curso in cursos)
-                        {
-                            if (curso.CodCurso == candidato.CodCurso1)
-                            {
-                                primeiraOpcao = curso;
-                            }
-                            if (curso.CodCurso == candidato.CodCurso2 && primeiraOpcao != null)
-                            {
-                                segundaOpcao = curso;
-                            }
-                        }
-                    }*/
-
                     StreamWriter arqSaida = new StreamWriter("saida.txt", false, Encoding.UTF8);
-                    for (int i = qtdCandidatos - 1; i >= 0; i--)
+                    foreach (Curso curso in dicionario_curso.Values)
                     {
-                        arqSaida.WriteLine("Nome: " + candidatos[i].Nome + " - Nota Média: " + candidatos[i].NotaMedia + " - Redação: " + candidatos[i].NotaRedacao + " - Matemática: " + candidatos[i].NotaMatematica);
+                        arqSaida.WriteLine($"{curso.Nome} {curso.NotaDeCorte:F2}");
+
+                        arqSaida.WriteLine("Selecionados");
+                        foreach (var candidato in curso.ListaSelecionados)
+                        {
+                            arqSaida.WriteLine($"{candidato.Nome} {candidato.NotaMedia:F2} {candidato.NotaRedacao} {candidato.NotaMatematica} {candidato.NotaLinguagens}");
+                        }
+
+                        arqSaida.WriteLine("Fila de Espera");
+                        curso.FilaDeEspera.Imprimir(arqSaida);
+                        arqSaida.WriteLine();
                     }
                     arqSaida.Close();
                 }

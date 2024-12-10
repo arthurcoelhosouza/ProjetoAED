@@ -51,13 +51,13 @@ namespace ProjetoAED.Classes
         }
         public int CodCurso1
         {
-            get { return CodCurso1; }
-            set { CodCurso1 = value; }
+            get { return codCurso1; }
+            set { codCurso1 = value; }
         }
         public int CodCurso2
         {
-            get { return CodCurso2; }
-            set { CodCurso2 = value; }
+            get { return codCurso2; }
+            set { codCurso2 = value; }
         }
         public bool Aprovado1
         {
