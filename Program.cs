@@ -52,14 +52,14 @@ namespace ProjetoAED
                         if (!candidatos[i].Aprovado1 && !candidatos[i].Aprovado2)
                         {
                             dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f1);
-                            dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f2);
+                            dicionario_curso.TryGetValue(candidatos[i].CodCurso2, out Curso f2);
                             f1.FilaDeEspera.Inserir(candidatos[i]);
                             f2.FilaDeEspera.Inserir(candidatos[i]);
                         }
                         else if (!candidatos[i].Aprovado1 && candidatos[i].Aprovado2)
                         {
-                            dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso f1);
-                            f1.FilaDeEspera.Inserir(candidatos[i]);
+                            dicionario_curso.TryGetValue(candidatos[i].CodCurso2, out Curso f2);
+                            f2.FilaDeEspera.Inserir(candidatos[i]);
                         }
                     }
 
