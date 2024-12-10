@@ -97,7 +97,7 @@ namespace ProjetoAED{
             int iEsq = 0, iDir = 0;
             for (int k = esq; k <= dir; k++)
             {
-                if (arrayEsq[iEsq].NotaFinal() <= arrayDir[iDir].NotaFinal())
+                if (arrayEsq[iEsq].NotaMedia <= arrayDir[iDir].NotaMedia)
                 {
                     array[k] = arrayEsq[iEsq++];
                 }
