@@ -9,6 +9,7 @@ namespace ProjetoAED.Classes{
     internal class Curso{
         private int codCurso, qtdVagas;
         private string nome;
+        private double notaDeCorte;
         private List<Candidato> listaSelecionados;
         private Fila filadeEspera;
         private int tamanhoEspera = 10;
@@ -19,6 +20,7 @@ namespace ProjetoAED.Classes{
             this.nome = nome;
             this.listaSelecionados = new List<Candidato>();
             this.filadeEspera = new Fila(tamanhoEspera);
+            this.notaDeCorte = 0.0;
         }
 
         public int CodCurso{ 
@@ -67,7 +69,7 @@ namespace ProjetoAED.Classes{
             }
         }
 
-        public double AtualizarNotaDeCorte()
+        public void AtualizarNotaDeCorte()
         {
             if (listaSelecionados.Count > 0)
             {
@@ -80,11 +82,11 @@ namespace ProjetoAED.Classes{
                         menorNota = candidato.NotaMedia;
                     }
                 }
-                return menorNota;
+                this.notaDeCorte = menorNota;
             }
             else
             {
-                return 0.0;
+                this.notaDeCorte = 0.0;
             }
         }
 

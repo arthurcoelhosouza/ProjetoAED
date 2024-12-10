@@ -19,6 +19,7 @@ namespace ProjetoAED{
 
                     linha = arqEntrada.ReadLine();
                     int qtdCursos = int.Parse(linha.Split(';')[0]), qtdCandidatos = int.Parse(linha.Split(';')[1]);
+                    Dictionary<string, double> notasDeCorte = new Dictionary<string, double>();
                     Curso[] cursos = new Curso[qtdCursos];
                     Candidato[] candidatos = new Candidato[qtdCandidatos];
 
