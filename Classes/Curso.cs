@@ -90,7 +90,7 @@ namespace ProjetoAED.Classes{
             }
         }
 
-        public void ProcessarFilaDeEspera()
+        /*public void ProcessarFilaDeEspera()
         {
             while (!filadeEspera.EstaVazia() && !EstaCheio())
             {
@@ -98,6 +98,6 @@ namespace ProjetoAED.Classes{
                 listaSelecionados.Add(candidato);
                 AtualizarNotaDeCorte();
             }
-        }
+        }*/
     }
 }

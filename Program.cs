@@ -35,30 +35,35 @@ namespace ProjetoAED{
                         candidatos[i] = new Candidato(linha.Split(';')[0], double.Parse(linha.Split(';')[1]), double.Parse(linha.Split(';')[2]), double.Parse(linha.Split(';')[3]), int.Parse(linha.Split(';')[4]), int.Parse(linha.Split(';')[5]));
                     }
 
+                    Mergesort(candidatos, 0, candidatos.Length - 1);
+
                     arqEntrada.Close();
 
                     // ORDENAR CANDIDATOS AQUI
 
-                    foreach (Candidato candidato in candidatos)
+                    /*foreach (Candidato candidato in candidatos)
                     {
                         Curso primeiraOpcao = null;
-                        Curso segundaPpcao = null;
+                        Curso segundaOpcao = null;
 
                         foreach (Curso curso in cursos)
                         {
-                            if (curso.CodCurso == candidato.codCurso1)
+                            if (curso.CodCurso == candidato.CodCurso1)
                             {
                                 primeiraOpcao = curso;
                             }
                             if (curso.CodCurso == candidato.CodCurso2 && primeiraOpcao != null)
                             {
-                                segundaPpcao = curso;
+                                segundaOpcao = curso;
                             }
                         }
-                    }
+                    }*/
 
                     StreamWriter arqSaida = new StreamWriter("saida.txt", false, Encoding.UTF8);
-
+                    for (int i = qtdCandidatos - 1; i >= 0; i--)
+                    {
+                        arqSaida.WriteLine("Nome: " + candidatos[i].Nome + " - Nota Média: " + candidatos[i].NotaMedia + " - Redação: " + candidatos[i].NotaRedacao + " - Matemática: " + candidatos[i].NotaMatematica);
+                    }
                     arqSaida.Close();
                 }
             }
@@ -67,7 +72,7 @@ namespace ProjetoAED{
                 Console.WriteLine("O arquivo não pode ser lido:\n" + e.Message);
             }
         }
-        public void Mergesort(Candidato[] array, int esq, int dir)
+        static public void Mergesort(Candidato[] array, int esq, int dir)
         {
             if (esq < dir)
             {
@@ -77,7 +82,7 @@ namespace ProjetoAED{
                 Intercalar(array, esq, meio, dir);
             }
         }
-        public void Intercalar(Candidato[] array, int esq, int meio, int dir)
+        static public void Intercalar(Candidato[] array, int esq, int meio, int dir)
         {
             int nEsq = meio - esq + 1;
             int nDir = dir - meio;
@@ -97,13 +102,35 @@ namespace ProjetoAED{
             int iEsq = 0, iDir = 0;
             for (int k = esq; k <= dir; k++)
             {
-                if (arrayEsq[iEsq].NotaMedia <= arrayDir[iDir].NotaMedia)
+                if (arrayEsq[iEsq].NotaMedia < arrayDir[iDir].NotaMedia)
                 {
                     array[k] = arrayEsq[iEsq++];
                 }
-                else
+                else if (arrayEsq[iEsq].NotaMedia > arrayDir[iDir].NotaMedia)
                 {
                     array[k] = arrayDir[iDir++];
+                }
+                else
+                {
+                    if (arrayEsq[iEsq].NotaRedacao < arrayDir[iDir].NotaRedacao)
+                    {
+                        array[k] = arrayEsq[iEsq++];
+                    }
+                    else if (arrayEsq[iEsq].NotaRedacao > arrayDir[iDir].NotaRedacao)
+                    {
+                        array[k] = arrayDir[iDir++];
+                    }
+                    else
+                    {
+                        if (arrayEsq[iEsq].NotaMatematica <= arrayDir[iDir].NotaMatematica)
+                        {
+                            array[k] = arrayEsq[iEsq++];
+                        }
+                        else if (arrayEsq[iEsq].NotaMatematica >= arrayDir[iDir].NotaMatematica)
+                        {
+                            array[k] = arrayDir[iDir++];
+                        }
+                    }
                 }
             }
         }

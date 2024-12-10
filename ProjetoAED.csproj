@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\Candidato.cs" />
     <Compile Include="Classes\Curso.cs" />
+    <Compile Include="Classes\Fila.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
