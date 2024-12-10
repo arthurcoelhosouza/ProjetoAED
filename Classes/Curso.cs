@@ -63,13 +63,15 @@ namespace ProjetoAED.Classes{
                 if(opcao == 1)
                 {
                     candidato.Aprovado1 = true;
+                    listaSelecionados.Add(candidato);
+                    AtualizarNotaDeCorte();
                 }
-                else
+                else if (opcao == 2)
                 {
                     candidato.Aprovado2 = true;
+                    listaSelecionados.Add(candidato);
+                    AtualizarNotaDeCorte();
                 }
-                listaSelecionados.Add(candidato);
-                AtualizarNotaDeCorte();
             }
             else
             {

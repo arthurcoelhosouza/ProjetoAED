@@ -27,7 +27,7 @@ namespace ProjetoAED{
                     {
                         linha = arqEntrada.ReadLine();
                         cursos = new Curso(int.Parse(linha.Split(';')[0]), linha.Split(';')[1], int.Parse(linha.Split(';')[2]));
-                        dicionario_curso.Add(int.Parse(linha.Split(';')[0]), cursos);
+                        dicionario_curso.Add(cursos.CodCurso, cursos);
                     }
 
                     for (int i = 0; i < qtdCandidatos; i++)
@@ -37,28 +37,15 @@ namespace ProjetoAED{
                     }
 
                     Mergesort(candidatos, 0, candidatos.Length - 1);
-
-                    for(int i = 0; i < candidatos.Length; i++)
+                    for (int i = 0; i < candidatos.Length; i++)
                     {
-                        foreach(int j in dicionario_curso.Keys)
+                        if (dicionario_curso.TryGetValue(candidatos[i].CodCurso1, out Curso c1))
                         {
-                            Curso c1 = dicionario_curso[j];
-                            if (j == candidatos[i].CodCurso1)
-                            {
-                                c1.InserirCandidato(1, candidatos[i]);
-                            }
-                            else
-                            {
-                                
-                            }
-                            /*if (cursos[j].CodCurso == candidatos[i].CodCurso1)
-                            {
-                                cursos[j].InserirCandidato(1, candidatos[i]);
-                            }
-                            else if(cursos[j].CodCurso == candidatos[i].CodCurso2)
-                            {
-                                cursos[j].InserirCandidato(2, candidatos[i]);  
-                            }*/
+                            c1.InserirCandidato(1, candidatos[i]);
+                        }
+                        else if (dicionario_curso.TryGetValue(candidatos[i].CodCurso2, out Curso c2))
+                        {
+                            c2.InserirCandidato(2, candidatos[i]);
                         }
                     }
 
