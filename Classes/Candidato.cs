@@ -40,5 +40,15 @@ namespace ProjetoAED.Classes {
             get { return notaLinguagens; }
             set { notaLinguagens = value; }
         }
+        public int CodCurso1
+        {
+            get { return CodCurso1; }
+            set { CodCurso1 = value; }
+        }
+        public int CodCurso2
+        {
+            get { return CodCurso2; }
+            set { CodCurso2 = value; }
+        }
     }
 }

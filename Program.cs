@@ -36,6 +36,26 @@ namespace ProjetoAED{
 
                     arqEntrada.Close();
 
+                    // ORDENAR CANDIDATOS AQUI
+
+                    foreach (Candidato candidato in candidatos)
+                    {
+                        Curso primeiraOpcao = null;
+                        Curso segundaPpcao = null;
+
+                        foreach (Curso curso in cursos)
+                        {
+                            if (curso.CodCurso == candidato.codCurso1)
+                            {
+                                primeiraOpcao = curso;
+                            }
+                            if (curso.CodCurso == candidato.CodCurso2 && primeiraOpcao != null)
+                            {
+                                segundaPpcao = curso;
+                            }
+                        }
+                    }
+
                     StreamWriter arqSaida = new StreamWriter("saida.txt", false, Encoding.UTF8);
 
                     arqSaida.Close();
@@ -46,46 +66,45 @@ namespace ProjetoAED{
                 Console.WriteLine("O arquivo não pode ser lido:\n" + e.Message);
             }
         }
-    }
-    public void Mergesort(Candidato[] array, int esq, int dir)
-    {
-        if (esq < dir)
+        public void Mergesort(Candidato[] array, int esq, int dir)
         {
-            int meio = (esq + dir) / 2;
-            Mergesort(array, esq, meio);
-            Mergesort(array, meio + 1, dir);
-            Intercalar(array, esq, meio, dir);
-        }
-    }
-    public void Intercalar(Candidato[] array, int esq, int meio, int dir)
-    {
-        int nEsq = meio - esq + 1;
-        int nDir = dir - meio;
-
-        Candidato[] arrayEsq = new Candidato[nEsq + 1];
-        Candidato[] arrayDir = new Candidato[nDir + 1];
-
-        arrayEsq[nEsq] = new Candidato("", double.MaxValue, 0, 0, 0, 0);
-        arrayDir[nDir] = new Candidato("", double.MaxValue, 0, 0, 0, 0);
-
-        for (int i = 0; i < nEsq; i++)
-            arrayEsq[i] = array[esq + i];
-
-        for (int j = 0; j < nDir; j++)
-            arrayDir[j] = array[meio + 1 + j];
-
-        int iEsq = 0, iDir = 0;
-        for (int k = esq; k <= dir; k++)
-        {
-            if (arrayEsq[iEsq].NotaFinal() <= arrayDir[iDir].NotaFinal())
+            if (esq < dir)
             {
-                array[k] = arrayEsq[iEsq++];
-            }
-            else
-            {
-                array[k] = arrayDir[iDir++];
+                int meio = (esq + dir) / 2;
+                Mergesort(array, esq, meio);
+                Mergesort(array, meio + 1, dir);
+                Intercalar(array, esq, meio, dir);
             }
         }
-    }
+        public void Intercalar(Candidato[] array, int esq, int meio, int dir)
+        {
+            int nEsq = meio - esq + 1;
+            int nDir = dir - meio;
 
+            Candidato[] arrayEsq = new Candidato[nEsq + 1];
+            Candidato[] arrayDir = new Candidato[nDir + 1];
+
+            arrayEsq[nEsq] = new Candidato("", double.MaxValue, 0, 0, 0, 0);
+            arrayDir[nDir] = new Candidato("", double.MaxValue, 0, 0, 0, 0);
+
+            for (int i = 0; i < nEsq; i++)
+                arrayEsq[i] = array[esq + i];
+
+            for (int j = 0; j < nDir; j++)
+                arrayDir[j] = array[meio + 1 + j];
+
+            int iEsq = 0, iDir = 0;
+            for (int k = esq; k <= dir; k++)
+            {
+                if (arrayEsq[iEsq].NotaFinal() <= arrayDir[iDir].NotaFinal())
+                {
+                    array[k] = arrayEsq[iEsq++];
+                }
+                else
+                {
+                    array[k] = arrayDir[iDir++];
+                }
+            }
+        }
+    }
 }
